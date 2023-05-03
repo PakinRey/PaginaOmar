@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: sans-serif;
+        }
+      
+        section {
+          position: relative;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+        }
+      
+        .seccion1 {
+          background-image: url('https://picsum.photos/id/237/2000/1000');
+          background-size: cover;
+          background-position: center;
+        }
+      
+        .seccion2 {
+position: relative;
+overflow: hidden;
+transition: transform 5s;
+}
+
+.seccion2::before {
+content: "";
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background-image: url('https://picsum.photos/id/1062/2000/1000');
+background-size: cover;
+background-position: center;
+transform: translate(0, 0);
+transition: transform 5s;
+z-index: -1;
+}
+
+.seccion2__content {
+position: relative;
+z-index: 1;
+}
+
+.seccion2.active::before {
+transform: scale(1.5);
+}
+      
+        h1 {
+          font-size: 4rem;
+          text-align: center;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+      
+        .seccion3 {
+          background-image: url('https://picsum.photos/id/1062/2000/1000');
+          background-size: cover;
+          background-position: center;
+          overflow: hidden;
+        }
+      </style>
+      
+      <section class="seccion1">
+        <h1>Sección 1</h1>
+      </section>
+      
+      <section class="seccion2">
+        <div class="seccion2__content">
+          <h1>Sección 2</h1>
+        </div>
+      </section>
+      
+      <section class="seccion3">
+        <h1>Sección 3</h1>
+      </section>
+      
+      
+      <script>
+          const seccion2 = document.querySelector('.seccion2');
+
+          window.addEventListener('scroll', () => {
+            const seccion2Pos = seccion2.getBoundingClientRect().bottom;
+            const windowHeight = window.innerHeight;
+
+            if (seccion2Pos < windowHeight / 2) {
+              const progress = (windowHeight / 2 - seccion2Pos) / (windowHeight / 2);
+              seccion2.style.transform = `scale(${1 + progress})`;
+            } else {
+              seccion2.style.transform = `scale(1)`;
+            }
+          });
+
+      </script>
+      
+      
+  </body>
+  
+  </html>

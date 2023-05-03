@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.seccion1 {
+  overflow: hidden;
+  position: relative; /* añade posición relativa para poder posicionar el contenido */
+  background-image: url('../../img/Index/Background/disparo-escala-grises-formaciones-rocosas-mar.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.seccion1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.seccion1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #c391f1;
+  mix-blend-mode: multiply;
+}
+
+.seccion1__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+.seccion1__content h1{
+  font-size: 5rem;
+  font-family: sans-serif;
+}
+.seccion1__content p{
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+
+
+
+
+.banner {
+  min-width: 100%;
+  min-height: 100%;
+  max-height: 1100px;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.scroll_Efect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center/cover;
+  z-index: -1;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  will-change: transform;
+}
+  
+.scroll_Efect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center/cover;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url('../../img/Index/Background/disparo-escala-grises-formaciones-rocosas-mar.jpg');
+}
+.scroll_Efect::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #c391f1;
+  mix-blend-mode: multiply;
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.4);
+  }
+}
+.scroll_Efect.active {
+  animation: kenburns 20s linear infinite;
+}
+
+.seccion1__content {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+.seccion1__content h1{
+  font-size: 4rem;
+  font-family: sans-serif;
+}
+.seccion1__content p{
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+
+
+
+  .seccion__content {
+    color: #000000;
+    position: relative;
+    z-index: 1;
+  }
+
+  
